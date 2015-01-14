@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+    {% block body_block %}
+    
+    <h1>Confirm Delete</h1>
+
+<form method="post">{% csrf_token %}
+    <h5>Are you sure you want to delete "{{ object }}" ?</h5>
+    <button class="btn btn-md btn-primary btn-block" type="submit" name="submit" value="Submit" />Yes</button>
+</form>
+
+{% endblock %}

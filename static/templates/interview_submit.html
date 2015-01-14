@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+    {% block body_block %}
+    
+    {% load bootstrap %}
+    
+        <h1>Fill in interview information</h1>
+
+        {% if filled %}
+        <strong>Thank you for filling the interview information.</strong>
+        <a href="/">Return to the homepage.</a><br />
+        
+        {% else %}
+        <strong>Please fill in below information.</strong>
+        
+        <!--<div class="well well-sm">User: {{ username }}</div>-->
+        
+        <form method="post" action="/interview_submit/">
+            {% csrf_token %}
+            {{ job_form|bootstrap }}
+            {{ interview_form|bootstrap }}
+            {{ interviewer_form|bootstrap }}
+
+            
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Submit" />Submit</button>
+
+        </form>
+                    
+
+        <a href="/">Return to the homepage.</a><br />
+
+        {% endif %}
+    {% endblock %}

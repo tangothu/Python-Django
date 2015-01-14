@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<h1>Login</h1>
+        {% load bootstrap %}
+
+        <form method="post" action=".">
+                {% csrf_token %}
+                 
+                {{ form|bootstrap }}
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Submit" />Log in</button>
+
+                <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+
+        <p>Not  a member? <a href="{% url 'registration_register' %}">Register</a>!</p>
+{% endblock %}

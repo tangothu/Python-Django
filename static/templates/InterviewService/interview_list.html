@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load pagination_tags %}
+
+    {% block body_block %}
+    
+    
+<h1>My Interviews</h1>
+<div class="panel panel-default">
+    
+    <!--<div class="panel-body">-->
+
+    <!--<div class="bs-example">-->
+    <table class="table table-hover" data-sort-name="JobTitle" data-sort-order="desc" data-show-columns="true">
+      <caption></caption>
+      <thead>
+        <tr>
+          <!-- <th>#</th> -->
+          <th data-field="JobTitle" data-sortable="true">Job Title</th>
+          <!--<th>Level</th>-->
+          <th>Category</th>
+          <th>Company</th>
+          <th>Department</th>
+          <th>Education Requirement</th>
+          <th>Computer Skills</th>
+          <th>Round</th>
+          <th>Interviewer</th>
+          <th>Interviewee</th>
+        </tr>
+      </thead>
+
+    {% autopaginate object_list 100 %}
+
+    {% for interview in object_list %}
+      <tbody>
+        <tr>
+          <!-- <td>{{interview.id}}</td> -->
+          <td> {{ interview.job.title }} </td>
+          <!--<td> {{ interview.job.level }} </td>-->
+          <td> {{ interview.job.category }} </td>
+          <td> {{ interview.job.company }} </td>
+          <td> {{ interview.job.department }} </td>
+          <td> {{ interview.job.education_requirement }} </td>
+          <td> {{ interview.job.computer_skills }} </td>
+          <td> {{ interview.round }}</td>
+          <td> {{ interview.interviewer }}</td>
+          <td> {{ interview.interviewee }}</td>
+          <td> <a class="btn btn-primary btn-xs" role="button" href="{% url "interview_edit" interview.id %}">Edit</a></td>
+          <td> <a class="btn btn-primary btn-xs" role="button" href="{% url "interview_delete" interview.id %}">Delete</a></td>
+        </tr>
+      </tbody>
+    {% endfor %}
+    </table>
+    
+    <!--</div>-->
+    
+    <!--</div>-->
+</div>
+    <div>
+        {% paginate %}
+    </div>
+    
+    <a class="btn btn-primary btn-sm" role="button" href="{% url "interview_new" %}">Add Interview</a>
+
+    {% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+    {% block body_block %}
+    
+    {% load bootstrap %}
+    <h1>Fill in interview information</h1>
+
+    <!--<strong>Please fill in below information.</strong>-->
+
+<form method="post">{% csrf_token %}
+        
+        {{ job_form.company|bootstrap }} <a class="btn btn-primary btn-xs" role="button" href="{% url "company_new" %}">Add Company</a>
+        {{ job_form.department|bootstrap }} <a class="btn btn-primary btn-xs" role="button" href="{% url "department_new" %}">Add Department</a>
+        {{ job_form.category|bootstrap }} <a class="btn btn-primary btn-xs" role="button" href="{% url "category_new" %}">Add Category</a>
+        {{ job_form.title|bootstrap }}
+        {{ job_form.level|bootstrap }}
+        {{ job_form.key_accountabilities|bootstrap }}
+        {{ job_form.education_requirement|bootstrap }}
+        {{ job_form.computer_skills|bootstrap }}
+        {{ interview_form|bootstrap }}
+        {{ interviewer_form|bootstrap }}
+        {{ question_form|bootstrap }}
+
+    <button class="btn btn-md btn-primary" type="submit" name="submit" value="Submit" />Submit Interview</button>
+</form>
+
+    <a href="/">Return to the homepage.</a><br />
+
+    {% endblock %}
