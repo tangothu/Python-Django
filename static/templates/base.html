@@ -32,11 +32,13 @@
 
   <body>
   {% include 'navbar.html' %}
-
+  
+  
   {% block jumbotron %}
   {% endblock %}
-
-
+  
+  
+  
 
 
 
@@ -71,8 +73,25 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/bootstrap-table.js"></script>
     <script src="/static/js/bootstrap-table.min.js"></script>
+    <script src="/static/js/jssor.slider.mini.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script>
+    jQuery(document).ready(function ($) {
+        var options = {
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,
+                $ChanceToShow: 2,
+                $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+            },
+            $AutoPlay: true
+        };
+        var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+    });
+    </script>
+    
   </body>
 </html>

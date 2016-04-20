@@ -64,7 +64,8 @@ class InterviewerForm(forms.ModelForm):
 class IntervieweeForm(forms.ModelForm):
     class Meta:
         model = Interviewee
-    
+        fields = '__all__'
+        
     def __init__(self, *args, **kwargs):
         self._user = kwargs.pop('user', None)
         super(IntervieweeForm, self).__init__(*args, **kwargs)
@@ -98,4 +99,4 @@ class InterviewForm(forms.ModelForm):
             self.save_m2m()
         return inst
 
-QuestionFormSet = inlineformset_factory(Interview,Question,extra=1,max_num=1,can_delete=False)
+QuestionFormSet = inlineformset_factory(Interview,Question,fields='__all__',extra=1,max_num=1,can_delete=False)

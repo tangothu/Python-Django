@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os,sys
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -47,7 +48,7 @@ INSTALLED_APPS = (
     #'account',
     #'bootstrap_pagination',
     'pagination_bootstrap',
-
+    #'banner_rotator',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -70,7 +71,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'pagination_bootstrap.middleware.PaginationMiddleware',
-
 )
 
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'

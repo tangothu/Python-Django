@@ -31,7 +31,8 @@ def interview_list(request, template_name='InterviewService/interview_list.html'
 @login_required
 def search_interviews(request, template_name='InterviewService/interview_list.html'):
     if request.GET:
-        search_term = request.GET['term']
+        search_term = request.GET.get("term")
+        #search_term = request.GET['term']
         interviewee = Interviewee.objects.get_or_create(user=request.user)[0]
         
         if request.user.username!='admin':

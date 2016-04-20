@@ -31,7 +31,7 @@ urlpatterns = patterns('',
     url(r'^company_new/new$', views.company_create, name='company_new'),
     url(r'^department_new/new$', views.department_create, name='department_new'),
     url(r'^category_new/new$', views.category_create, name='category_new'),
-
+    
 )
 
 if settings.DEBUG:
